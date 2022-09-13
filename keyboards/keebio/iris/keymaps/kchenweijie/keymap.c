@@ -36,3 +36,25 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 bool encoder_update_user(uint8_t index, bool clockwise) {
     return false;
 }
+
+layer_state_t layer_state_set_user(layer_state_t state) {
+    switch (get_highest_layer(state)) {
+        case _QWERTY:
+            break;
+        case _GAMING:
+            break;
+        case _NUMBERS:
+            break;
+        case _SYMBOLS:
+            break;
+        case _FUNCTIONS:
+            break;
+        case _NAVIGATION:
+            break;
+        case _GAMING_NUMS:
+            break;
+        case _GAMING_FNS:
+            break;
+    }
+    return state;
+}
