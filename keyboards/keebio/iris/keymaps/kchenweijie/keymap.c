@@ -1,13 +1,14 @@
 #include QMK_KEYBOARD_H
+#include "light_layers.h"
 
-#define _QWERTY 0
-#define _GAMING 1
-#define _NUMBERS 2
-#define _SYMBOLS 3
-#define _FUNCTIONS 4
-#define _NAVIGATION 5
-#define _GAMING_NUMS 6
-#define _GAMING_FNS 7
+// #define _QWERTY 0
+// #define _GAMING 1
+// #define _NUMBERS 2
+// #define _SYMBOLS 3
+// #define _FUNCTIONS 4
+// #define _NAVIGATION 5
+// #define _GAMING_NUMS 6
+// #define _GAMING_FNS 7
 
 #define LSFT_A LSFT_T(KC_A)
 #define LCTL_S LCTL_T(KC_S)
@@ -32,16 +33,22 @@
 
 #define _____ KC_NO
 
-enum custom_keycodes {
-    QWERTY = SAFE_RANGE,
-    GAMING,
-    NUMBERS,
-    SYMBOLS,
-    FUNCTIONS,
-    NAVIGATION,
-    GAMING_NUMS,
-    GAMING_FNS,
+enum layers {
+    _QWERTY,
+    _GAMING,
+    _NUMBERS,
+    _SYMBOLS,
+    _FUNCTIONS,
+    _NAVIGATION,
+    _GAMING_NUMS,
+    _GAMING_FNS,
 };
+
+// enum custom_keycodes {
+//     DEFAULT = SAFE_RANGE,
+//     QWERTY,
+//     GAMING,
+// };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_QWERTY] = LAYOUT(
@@ -109,14 +116,25 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     )
 };
 
-bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-    return true;
+
+void keyboard_post_init_user(void) {
+    rgblight_layers = LIGHT_LAYERS;
 }
 
-bool encoder_update_user(uint8_t index, bool clockwise) {
-    return false;
+layer_state_t default_layer_state_set_user(layer_state_t state) {
+    rgblight_set_layer_state(_QWERTY, layer_state_cmp(state, _QWERTY));
+    rgblight_set_layer_state(_GAMING, layer_state_cmp(state, _GAMING));
+
+    return state;
 }
 
 layer_state_t layer_state_set_user(layer_state_t state) {
+    rgblight_set_layer_state(_NUMBERS, layer_state_cmp(state, _NUMBERS));
+    rgblight_set_layer_state(_SYMBOLS, layer_state_cmp(state, _SYMBOLS));
+    rgblight_set_layer_state(_FUNCTIONS, layer_state_cmp(state, _FUNCTIONS));
+    rgblight_set_layer_state(_NAVIGATION, layer_state_cmp(state, _NAVIGATION));
+    rgblight_set_layer_state(_GAMING_NUMS, layer_state_cmp(state, _GAMING_NUMS));
+    rgblight_set_layer_state(_GAMING_FNS, layer_state_cmp(state, _GAMING_FNS));
+
     return state;
 }
