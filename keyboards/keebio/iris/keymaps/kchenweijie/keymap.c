@@ -34,7 +34,7 @@ enum layers {
     _GAMING_FNS,
 };
 
-// clang-format: off
+// clang-format off
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_QWERTY] = LAYOUT(
         _____,  _____,  _____,  _____,  _____,  _____,                      _____,  _____,  _____,  _____,  _____,  _____,
@@ -100,38 +100,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                         _____,  _____,  _____,      _____,  _____,  _____
     )
 };
-// clang-format: on
+// clang-format on
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     return true;
 }
-
-void matrix_init_user(void) {
-     rgb_matrix_mode_noeeprom(RGB_MATRIX_CUSTOM_qwerty_effect);
-}
-
-// layer_state_t layer_state_set_user(layer_state_t state) {
-//     switch (get_highest_layer(state)) {
-//         case _QWERTY:
-//             rgb_matrix_mode(RGB_MATRIX_CUSTOM_qwerty_effect);
-//             break;
-//         case _GAMING:
-//             break;
-//         case _NUMBERS:
-//             break;
-//         case _SYMBOLS:
-//             break;
-//         case _FUNCTIONS:
-//             break;
-//         case _NAVIGATION:
-//             break;
-//         case _GAMING_NUMS:
-//             break;
-//         case _GAMING_FNS:
-//             break;
-//         default:
-//             rgb_matrix_mode(RGB_MATRIX_CUSTOM_qwerty_effect);
-//             break;
-//     }
-//   return state;
-// }
