@@ -110,8 +110,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 #define WHITE       {0xFF, 0xFF, 0xFF}
 
 #define CQWER       {0x83, 0xD1, 0x34}
-#define CNUMS       {0xFF, 0x80, 0xBF}
-#define CSYMS       {0xFF, 0x7C, 0x4D}
+#define CNUMS       {0xFF, 0x7C, 0x4D}
+#define CSYMS       {0xFF, 0x80, 0xBF}
 #define CFNS_       {0xD9, 0xA5, 0x21}
 #define CNAV1       {0x00, 0x80, 0x80}
 #define CNAV2       {0x73, 0xE6, 0xE6}
@@ -164,18 +164,18 @@ const uint8_t PROGMEM ledmap[][DRIVER_LED_TOTAL][3] = {
 
     [_NUMBERS] = {
         L____,  L____,  L____,  L____,  L____,  L____,                      L____,  L____,  L____,  L____,  L____,  L____,
-        L____,  L____,  L____,  L____,  L____,  L____,                      WHITE,  CSYMS,  CSYMS,  CSYMS,  WHITE,  L____,
-        L____,  CQWER,  CQWER,  CQWER,  CQWER,  L____,                      WHITE,  CSYMS,  CSYMS,  CSYMS,  WHITE,  L____,
-        L____,  L____,  L____,  L____,  L____,  L____,  L____,      L____,  WHITE,  CSYMS,  CSYMS,  CSYMS,  WHITE,  L____,
-                                        L____,  CQWER,  L____,      CSYMS,  CSYMS,  CSYMS
+        L____,  L____,  L____,  L____,  L____,  L____,                      WHITE,  CNUMS,  CNUMS,  CNUMS,  WHITE,  L____,
+        L____,  CQWER,  CQWER,  CQWER,  CQWER,  L____,                      WHITE,  CNUMS,  CNUMS,  CNUMS,  WHITE,  L____,
+        L____,  L____,  L____,  L____,  L____,  L____,  L____,      L____,  WHITE,  CNUMS,  CNUMS,  CNUMS,  WHITE,  L____,
+                                        L____,  CQWER,  L____,      CNUMS,  CNUMS,  CNUMS
     },
 
     [_SYMBOLS] = {
         L____,  L____,  L____,  L____,  L____,  L____,                      L____,  L____,  L____,  L____,  L____,  L____,
-        L____,  L____,  L____,  L____,  L____,  L____,                      WHITE,  CNUMS,  CNUMS,  CNUMS,  WHITE,  L____,
-        L____,  CQWER,  CQWER,  CQWER,  CQWER,  L____,                      WHITE,  CNUMS,  CNUMS,  CNUMS,  WHITE,  L____,
-        L____,  L____,  L____,  L____,  L____,  L____,  L____,      L____,  WHITE,  CNUMS,  CNUMS,  CNUMS,  WHITE,  L____,
-                                        L____,  L____,  CQWER,      CNUMS,  CNUMS,  CNUMS
+        L____,  L____,  L____,  L____,  L____,  L____,                      WHITE,  CSYMS,  CSYMS,  CSYMS,  WHITE,  L____,
+        L____,  CQWER,  CQWER,  CQWER,  CQWER,  L____,                      WHITE,  CSYMS,  CSYMS,  CSYMS,  WHITE,  L____,
+        L____,  L____,  L____,  L____,  L____,  L____,  L____,      L____,  WHITE,  CSYMS,  CSYMS,  CSYMS,  WHITE,  L____,
+                                        L____,  L____,  CQWER,      CSYMS,  CSYMS,  CSYMS
     },
 
     [_FUNCTIONS] = {
@@ -196,17 +196,17 @@ const uint8_t PROGMEM ledmap[][DRIVER_LED_TOTAL][3] = {
 
     [_GAMING_NUMS] = {
         L____,  L____,  L____,  L____,  L____,  L____,                      L____,  L____,  L____,  L____,  L____,  L____,
-        L____,  WHITE,  WHITE,  WHITE,  WHITE,  L____,                      L____,  L____,  L____,  L____,  L____,  L____,
-        L____,  WHITE,  WHITE,  WHITE,  WHITE,  L____,                      L____,  L____,  L____,  L____,  L____,  L____,
-        L____,  WHITE,  WHITE,  WHITE,  WHITE,  L____,  L____,      L____,  L____,  L____,  L____,  L____,  L____,  L____,
+        L____,  WHITE,  CNUMS,  CNUMS,  CNUMS,  L____,                      L____,  L____,  L____,  L____,  L____,  L____,
+        L____,  WHITE,  CNUMS,  CNUMS,  CNUMS,  L____,                      L____,  L____,  L____,  L____,  L____,  L____,
+        L____,  CNUMS,  CNUMS,  CNUMS,  CNUMS,  L____,  L____,      L____,  L____,  L____,  L____,  L____,  L____,  L____,
                                         L____,  L____,  CQWER,      L____,  L____,  L____
     },
 
     [_GAMING_FNS] = {
         L____,  L____,  L____,  L____,  L____,  L____,                      L____,  L____,  L____,  L____,  L____,  L____,
-        L____,  WHITE,  WHITE,  WHITE,  WHITE,  L____,                      L____,  L____,  L____,  L____,  L____,  L____,
-        L____,  WHITE,  WHITE,  WHITE,  WHITE,  L____,                      L____,  L____,  L____,  L____,  L____,  L____,
-        L____,  WHITE,  WHITE,  WHITE,  WHITE,  L____,  CQWER,      L____,  L____,  L____,  L____,  L____,  L____,  L____,
+        L____,  WHITE,  CFNS_,  CFNS_,  CFNS_,  L____,                      L____,  L____,  L____,  L____,  L____,  L____,
+        L____,  WHITE,  CFNS_,  CFNS_,  CFNS_,  L____,                      L____,  L____,  L____,  L____,  L____,  L____,
+        L____,  WHITE,  CFNS_,  CFNS_,  CFNS_,  L____,  CQWER,      L____,  L____,  L____,  L____,  L____,  L____,  L____,
                                         L____,  L____,  L____,      L____,  L____,  L____
     }
 
