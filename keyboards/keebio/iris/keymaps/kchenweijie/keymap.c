@@ -1,14 +1,4 @@
 #include QMK_KEYBOARD_H
-#include "light_layers.h"
-
-// #define _QWERTY 0
-// #define _GAMING 1
-// #define _NUMBERS 2
-// #define _SYMBOLS 3
-// #define _FUNCTIONS 4
-// #define _NAVIGATION 5
-// #define _GAMING_NUMS 6
-// #define _GAMING_FNS 7
 
 #define LSFT_A LSFT_T(KC_A)
 #define LCTL_S LCTL_T(KC_S)
@@ -44,12 +34,7 @@ enum layers {
     _GAMING_FNS,
 };
 
-// enum custom_keycodes {
-//     DEFAULT = SAFE_RANGE,
-//     QWERTY,
-//     GAMING,
-// };
-
+// clang-format: off
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_QWERTY] = LAYOUT(
         _____,  _____,  _____,  _____,  _____,  _____,                      _____,  _____,  _____,  _____,  _____,  _____,
@@ -115,26 +100,38 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                         _____,  _____,  _____,      _____,  _____,  _____
     )
 };
+// clang-format: on
 
-
-void keyboard_post_init_user(void) {
-    rgblight_layers = LIGHT_LAYERS;
+bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+    return true;
 }
 
-layer_state_t default_layer_state_set_user(layer_state_t state) {
-    rgblight_set_layer_state(_QWERTY, layer_state_cmp(state, _QWERTY));
-    rgblight_set_layer_state(_GAMING, layer_state_cmp(state, _GAMING));
-
-    return state;
+void matrix_init_user(void) {
+     rgb_matrix_mode_noeeprom(RGB_MATRIX_CUSTOM_qwerty_effect);
 }
 
-layer_state_t layer_state_set_user(layer_state_t state) {
-    rgblight_set_layer_state(_NUMBERS, layer_state_cmp(state, _NUMBERS));
-    rgblight_set_layer_state(_SYMBOLS, layer_state_cmp(state, _SYMBOLS));
-    rgblight_set_layer_state(_FUNCTIONS, layer_state_cmp(state, _FUNCTIONS));
-    rgblight_set_layer_state(_NAVIGATION, layer_state_cmp(state, _NAVIGATION));
-    rgblight_set_layer_state(_GAMING_NUMS, layer_state_cmp(state, _GAMING_NUMS));
-    rgblight_set_layer_state(_GAMING_FNS, layer_state_cmp(state, _GAMING_FNS));
-
-    return state;
-}
+// layer_state_t layer_state_set_user(layer_state_t state) {
+//     switch (get_highest_layer(state)) {
+//         case _QWERTY:
+//             rgb_matrix_mode(RGB_MATRIX_CUSTOM_qwerty_effect);
+//             break;
+//         case _GAMING:
+//             break;
+//         case _NUMBERS:
+//             break;
+//         case _SYMBOLS:
+//             break;
+//         case _FUNCTIONS:
+//             break;
+//         case _NAVIGATION:
+//             break;
+//         case _GAMING_NUMS:
+//             break;
+//         case _GAMING_FNS:
+//             break;
+//         default:
+//             rgb_matrix_mode(RGB_MATRIX_CUSTOM_qwerty_effect);
+//             break;
+//     }
+//   return state;
+// }
