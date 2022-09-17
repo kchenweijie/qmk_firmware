@@ -103,15 +103,112 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                         _____,  _____,  _____,      _____,  _____,  _____
     )
 };
-// clang-format on
 
 ///// COLORS    ////////////////////////////////////////////////////////////////
-        // Name     // HSV      // RGB
-#define BLACK       {0, 0, 0}   // 0, 0, 0
+        // Name     // RGB
+#define L____       {0x00, 0x00, 0x00}
+#define WHITE       {0xff, 0xff, 0xff}
+#define SAGE_       {0x66, 0x80, 0x19}
+#define ORANG       {0xff, 0x57, 0x33}
+// #define CORAL       {0xff, 0x7c, 0x4d}
+// #define AZURE       {0x99, 0xf5, 0xff}
+// #define GOLDR       {0xd9, 0xa5, 0x21}
+// #define GOLD       {0xff, 0xd9, 0x00}
 
 ///// LAYER COLORS  ////////////////////////////////////////////////////////////
-// clang-format off
+/*
+
+LED index mapping:
+
+          (31)              (32)              (33)                                    (67)              (66)              (65)
+┌────────┬────────┬────────┬────────┬────────┬────────┐                          ┌────────┬────────┬────────┬────────┬────────┬────────┐
+│0       │1       │2       │3       │4       │5       │                          │39      │38      │37      │36      │35      │34      │
+├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
+│11      │10      │9       │8       │7       │6       │                          │40      │41      │42      │43      │44      │45      │
+├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
+│12      │13      │14      │15      │16      │17      │                          │51      │50      │49      │48      │47      │46      │
+├────────┼────────┼────────┼────────┼────────┼────────┼────────┐        ┌────────┼────────┼────────┼────────┼────────┼────────┼────────┤
+│23      │22      │21      │20      │19      │18      │27      │        │61      │52      │53      │54      │55      │56      │57      │
+└────────┴────────┴────────┴───┬────┴───┬────┴───┬────┴───┬────┘        └───┬────┴───┬────┴───┬────┴───┬────┴────────┴────────┴────────┘
+                               │24      │25      │26      │                 │60      │59      │58      │
+                               └────────┴────────┴────────┘                 └────────┴────────┴────────┘
+          (30)              (29)              (28)                                    (62)              (63)              (64)
+
+*/
+
+const uint8_t PROGMEM addrmap[DRIVER_LED_TOTAL] = {
+    0,  1,  2,  3,  4,  5,              39, 38, 37, 36, 35, 34,
+    11, 10, 9,  8,  7,  6,              40, 41, 42, 43, 44, 45,
+    12, 13, 14, 15, 16, 17,             51, 50, 49, 48, 47, 46,
+    23, 22, 21, 20, 19, 18, 27,     61, 52, 53, 54, 55, 56, 57,
+                    24, 25, 26,     60, 59, 58
+};
+
 const uint8_t PROGMEM ledmap[][DRIVER_LED_TOTAL][3] = {
+    [_QWERTY] = {
+        L____,  L____,  L____,  L____,  L____,  L____,                      L____,  L____,  L____,  L____,  L____,  L____,
+        L____,  WHITE,  WHITE,  WHITE,  WHITE,  WHITE,                      WHITE,  WHITE,  WHITE,  WHITE,  WHITE,  L____,
+        L____,  SAGE_,  SAGE_,  SAGE_,  SAGE_,  WHITE,                      WHITE,  SAGE_,  SAGE_,  SAGE_,  SAGE_,  L____,
+        L____,  WHITE,  WHITE,  WHITE,  WHITE,  WHITE,  L____,      L____,  WHITE,  WHITE,  WHITE,  WHITE,  WHITE,  L____,
+                                        SAGE_,  SAGE_,  SAGE_,      SAGE_,  SAGE_,  SAGE_
+    },
+
+    [_GAMING] = {
+        SAGE_,  L____,  L____,  L____,  L____,  L____,                      L____,  L____,  L____,  L____,  L____,  L____,
+        SAGE_,  WHITE,  SAGE_,  WHITE,  WHITE,  WHITE,                      WHITE,  WHITE,  WHITE,  WHITE,  WHITE,  L____,
+        SAGE_,  SAGE_,  SAGE_,  SAGE_,  WHITE,  WHITE,                      WHITE,  WHITE,  WHITE,  WHITE,  WHITE,  L____,
+        SAGE_,  WHITE,  WHITE,  WHITE,  WHITE,  WHITE,  SAGE_,      L____,  WHITE,  WHITE,  WHITE,  WHITE,  WHITE,  L____,
+                                        SAGE_,  SAGE_,  SAGE_,      L____,  SAGE_, L____
+    },
+
+    [_NUMBERS] = {
+        L____,  L____,  L____,  L____,  L____,  L____,                      L____,  L____,  L____,  L____,  L____,  L____,
+        L____,  L____,  L____,  L____,  L____,  L____,                      WHITE,  ORANG,  ORANG,  ORANG,  WHITE,  L____,
+        L____,  SAGE_,  SAGE_,  SAGE_,  SAGE_,  L____,                      WHITE,  ORANG,  ORANG,  ORANG,  WHITE,  L____,
+        L____,  L____,  L____,  L____,  L____,  L____,  L____,      L____,  WHITE,  ORANG,  ORANG,  ORANG,  WHITE,  L____,
+                                        L____,  SAGE_,  L____,      ORANG,  ORANG,  ORANG
+    },
+
+    [_SYMBOLS] = {
+        L____,  L____,  L____,  L____,  L____,  L____,                      L____,  L____,  L____,  L____,  L____,  L____,
+        L____,  L____,  L____,  L____,  L____,  L____,                      WHITE,  WHITE,  WHITE,  WHITE,  WHITE,  L____,
+        L____,  SAGE_,  SAGE_,  SAGE_,  SAGE_,  L____,                      WHITE,  WHITE,  WHITE,  WHITE,  WHITE,  L____,
+        L____,  L____,  L____,  L____,  L____,  L____,  L____,      L____,  WHITE,  WHITE,  WHITE,  WHITE,  WHITE,  L____,
+                                        L____,  L____,  SAGE_,      WHITE,  WHITE,  WHITE
+    },
+
+    [_FUNCTIONS] = {
+        L____,  L____,  L____,  L____,  L____,  L____,                      L____,  L____,  L____,  L____,  L____,  L____,
+        L____,  L____,  L____,  L____,  L____,  L____,                      L____,  WHITE,  WHITE,  WHITE,  WHITE,  L____,
+        L____,  SAGE_,  SAGE_,  SAGE_,  SAGE_,  L____,                      L____,  WHITE,  WHITE,  WHITE,  WHITE,  L____,
+        L____,  L____,  L____,  L____,  L____,  L____,  L____,      L____,  L____,  WHITE,  WHITE,  WHITE,  WHITE,  L____,
+                                        SAGE_,  L____,  L____,      L____,  L____,  L____
+    },
+
+    [_NAVIGATION] = {
+        L____,  L____,  L____,  L____,  L____,  L____,                      L____,  L____,  L____,  L____,  L____,  SAGE_,
+        L____,  L____,  L____,  WHITE,  WHITE,  L____,                      L____,  L____,  L____,  L____,  L____,  L____,
+        L____,  WHITE,  WHITE,  WHITE,  WHITE,  WHITE,                      SAGE_,  SAGE_,  SAGE_,  SAGE_,  SAGE_,  L____,
+        L____,  L____,  L____,  L____,  WHITE,  L____,  L____,      L____,  L____,  L____,  L____,  L____,  L____,  L____,
+                                        L____,  L____,  L____,      L____,  SAGE_,  L____
+    },
+
+    [_GAMING_NUMS] = {
+        L____,  L____,  L____,  L____,  L____,  L____,                      L____,  L____,  L____,  L____,  L____,  L____,
+        L____,  WHITE,  WHITE,  WHITE,  WHITE,  L____,                      L____,  L____,  L____,  L____,  L____,  L____,
+        L____,  WHITE,  WHITE,  WHITE,  WHITE,  L____,                      L____,  L____,  L____,  L____,  L____,  L____,
+        L____,  WHITE,  WHITE,  WHITE,  WHITE,  L____,  L____,      L____,  L____,  L____,  L____,  L____,  L____,  L____,
+                                        L____,  L____,  SAGE_,      L____,  L____,  L____
+    },
+
+    [_GAMING_FNS] = {
+        L____,  L____,  L____,  L____,  L____,  L____,                      L____,  L____,  L____,  L____,  L____,  L____,
+        L____,  WHITE,  WHITE,  WHITE,  WHITE,  L____,                      L____,  L____,  L____,  L____,  L____,  L____,
+        L____,  WHITE,  WHITE,  WHITE,  WHITE,  L____,                      L____,  L____,  L____,  L____,  L____,  L____,
+        L____,  WHITE,  WHITE,  WHITE,  WHITE,  L____,  SAGE_,      L____,  L____,  L____,  L____,  L____,  L____,  L____,
+                                        L____,  L____,  L____,      L____,  L____,  L____
+    }
+
 
 };
 // clang-format on
@@ -121,6 +218,54 @@ extern rgb_config_t rgb_matrix_config;
 
 void keyboard_post_init_user(void) {
     rgb_matrix_enable();
+}
+
+void set_layer_color(int layer) {
+    for (int i = 0; i < DRIVER_LED_TOTAL; ++i) {
+        RGB rgb = {
+            .r = pgm_read_byte(&ledmap[layer][i][0]),
+            .g = pgm_read_byte(&ledmap[layer][i][1]),
+            .b = pgm_read_byte(&ledmap[layer][i][2]),
+        };
+
+        uint8_t addr = pgm_read_byte(&addrmap[i]);
+        float f   = (float)rgb_matrix_config.hsv.v / UINT8_MAX;
+        rgb_matrix_set_color(addr, f * rgb.r, f * rgb.g, f * rgb.b);
+    }
+}
+
+void rgb_matrix_indicators_user(void) {
+    switch (biton32(layer_state)) {
+        case _QWERTY:
+            set_layer_color(_QWERTY);
+            break;
+        case _GAMING:
+            set_layer_color(_GAMING);
+            break;
+        case _NUMBERS:
+            set_layer_color(_NUMBERS);
+            break;
+        case _SYMBOLS:
+            set_layer_color(_SYMBOLS);
+            break;
+        case _FUNCTIONS:
+            set_layer_color(_FUNCTIONS);
+            break;
+        case _NAVIGATION:
+            set_layer_color(_NAVIGATION);
+            break;
+        case _GAMING_NUMS:
+            set_layer_color(_GAMING_NUMS);
+            break;
+        case _GAMING_FNS:
+            set_layer_color(_GAMING_FNS);
+            break;
+        default:
+            if (rgb_matrix_get_flags() == LED_FLAG_NONE) {
+                rgb_matrix_set_color_all(0, 0, 0);
+            }
+            break;
+    }
 }
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
