@@ -107,13 +107,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 ///// COLORS    ////////////////////////////////////////////////////////////////
         // Name     // RGB
 #define L____       {0x00, 0x00, 0x00}
-#define WHITE       {0xff, 0xff, 0xff}
-#define SAGE_       {0x66, 0x80, 0x19}
-#define ORANG       {0xff, 0x57, 0x33}
-// #define CORAL       {0xff, 0x7c, 0x4d}
-// #define AZURE       {0x99, 0xf5, 0xff}
-// #define GOLDR       {0xd9, 0xa5, 0x21}
-// #define GOLD       {0xff, 0xd9, 0x00}
+#define WHITE       {0xFF, 0xFF, 0xFF}
+
+#define CQWER       {0x83, 0xD1, 0x34}
+#define CNUMS       {0xFF, 0x80, 0xBF}
+#define CSYMS       {0xFF, 0x7C, 0x4D}
+#define CFNS_       {0xD9, 0xA5, 0x21}
+#define CNAV1       {0x00, 0x80, 0x80}
+#define CNAV2       {0x73, 0xE6, 0xE6}
 
 ///// LAYER COLORS  ////////////////////////////////////////////////////////////
 /*
@@ -148,49 +149,49 @@ const uint8_t PROGMEM ledmap[][DRIVER_LED_TOTAL][3] = {
     [_QWERTY] = {
         L____,  L____,  L____,  L____,  L____,  L____,                      L____,  L____,  L____,  L____,  L____,  L____,
         L____,  WHITE,  WHITE,  WHITE,  WHITE,  WHITE,                      WHITE,  WHITE,  WHITE,  WHITE,  WHITE,  L____,
-        L____,  SAGE_,  SAGE_,  SAGE_,  SAGE_,  WHITE,                      WHITE,  SAGE_,  SAGE_,  SAGE_,  SAGE_,  L____,
+        L____,  CQWER,  CQWER,  CQWER,  CQWER,  WHITE,                      WHITE,  CQWER,  CQWER,  CQWER,  CQWER,  L____,
         L____,  WHITE,  WHITE,  WHITE,  WHITE,  WHITE,  L____,      L____,  WHITE,  WHITE,  WHITE,  WHITE,  WHITE,  L____,
-                                        SAGE_,  SAGE_,  SAGE_,      SAGE_,  SAGE_,  SAGE_
+                                        CQWER,  CQWER,  CQWER,      CQWER,  CQWER,  CQWER
     },
 
     [_GAMING] = {
-        SAGE_,  L____,  L____,  L____,  L____,  L____,                      L____,  L____,  L____,  L____,  L____,  L____,
-        SAGE_,  WHITE,  SAGE_,  WHITE,  WHITE,  WHITE,                      WHITE,  WHITE,  WHITE,  WHITE,  WHITE,  L____,
-        SAGE_,  SAGE_,  SAGE_,  SAGE_,  WHITE,  WHITE,                      WHITE,  WHITE,  WHITE,  WHITE,  WHITE,  L____,
-        SAGE_,  WHITE,  WHITE,  WHITE,  WHITE,  WHITE,  SAGE_,      L____,  WHITE,  WHITE,  WHITE,  WHITE,  WHITE,  L____,
-                                        SAGE_,  SAGE_,  SAGE_,      L____,  SAGE_, L____
+        CQWER,  L____,  L____,  L____,  L____,  L____,                      L____,  L____,  L____,  L____,  L____,  L____,
+        CQWER,  WHITE,  CQWER,  WHITE,  WHITE,  WHITE,                      WHITE,  WHITE,  WHITE,  WHITE,  WHITE,  L____,
+        CQWER,  CQWER,  CQWER,  CQWER,  WHITE,  WHITE,                      WHITE,  WHITE,  WHITE,  WHITE,  WHITE,  L____,
+        CQWER,  WHITE,  WHITE,  WHITE,  WHITE,  WHITE,  CQWER,      L____,  WHITE,  WHITE,  WHITE,  WHITE,  WHITE,  L____,
+                                        CQWER,  CQWER,  CQWER,      L____,  CQWER, L____
     },
 
     [_NUMBERS] = {
         L____,  L____,  L____,  L____,  L____,  L____,                      L____,  L____,  L____,  L____,  L____,  L____,
-        L____,  L____,  L____,  L____,  L____,  L____,                      WHITE,  ORANG,  ORANG,  ORANG,  WHITE,  L____,
-        L____,  SAGE_,  SAGE_,  SAGE_,  SAGE_,  L____,                      WHITE,  ORANG,  ORANG,  ORANG,  WHITE,  L____,
-        L____,  L____,  L____,  L____,  L____,  L____,  L____,      L____,  WHITE,  ORANG,  ORANG,  ORANG,  WHITE,  L____,
-                                        L____,  SAGE_,  L____,      ORANG,  ORANG,  ORANG
+        L____,  L____,  L____,  L____,  L____,  L____,                      WHITE,  CSYMS,  CSYMS,  CSYMS,  WHITE,  L____,
+        L____,  CQWER,  CQWER,  CQWER,  CQWER,  L____,                      WHITE,  CSYMS,  CSYMS,  CSYMS,  WHITE,  L____,
+        L____,  L____,  L____,  L____,  L____,  L____,  L____,      L____,  WHITE,  CSYMS,  CSYMS,  CSYMS,  WHITE,  L____,
+                                        L____,  CQWER,  L____,      CSYMS,  CSYMS,  CSYMS
     },
 
     [_SYMBOLS] = {
         L____,  L____,  L____,  L____,  L____,  L____,                      L____,  L____,  L____,  L____,  L____,  L____,
-        L____,  L____,  L____,  L____,  L____,  L____,                      WHITE,  WHITE,  WHITE,  WHITE,  WHITE,  L____,
-        L____,  SAGE_,  SAGE_,  SAGE_,  SAGE_,  L____,                      WHITE,  WHITE,  WHITE,  WHITE,  WHITE,  L____,
-        L____,  L____,  L____,  L____,  L____,  L____,  L____,      L____,  WHITE,  WHITE,  WHITE,  WHITE,  WHITE,  L____,
-                                        L____,  L____,  SAGE_,      WHITE,  WHITE,  WHITE
+        L____,  L____,  L____,  L____,  L____,  L____,                      WHITE,  CNUMS,  CNUMS,  CNUMS,  WHITE,  L____,
+        L____,  CQWER,  CQWER,  CQWER,  CQWER,  L____,                      WHITE,  CNUMS,  CNUMS,  CNUMS,  WHITE,  L____,
+        L____,  L____,  L____,  L____,  L____,  L____,  L____,      L____,  WHITE,  CNUMS,  CNUMS,  CNUMS,  WHITE,  L____,
+                                        L____,  L____,  CQWER,      CNUMS,  CNUMS,  CNUMS
     },
 
     [_FUNCTIONS] = {
         L____,  L____,  L____,  L____,  L____,  L____,                      L____,  L____,  L____,  L____,  L____,  L____,
-        L____,  L____,  L____,  L____,  L____,  L____,                      L____,  WHITE,  WHITE,  WHITE,  WHITE,  L____,
-        L____,  SAGE_,  SAGE_,  SAGE_,  SAGE_,  L____,                      L____,  WHITE,  WHITE,  WHITE,  WHITE,  L____,
-        L____,  L____,  L____,  L____,  L____,  L____,  L____,      L____,  L____,  WHITE,  WHITE,  WHITE,  WHITE,  L____,
-                                        SAGE_,  L____,  L____,      L____,  L____,  L____
+        L____,  L____,  L____,  L____,  L____,  L____,                      L____,  CFNS_,  CFNS_,  CFNS_,  WHITE,  L____,
+        L____,  CQWER,  CQWER,  CQWER,  CQWER,  L____,                      L____,  CFNS_,  CFNS_,  CFNS_,  WHITE,  L____,
+        L____,  L____,  L____,  L____,  L____,  L____,  L____,      L____,  L____,  CFNS_,  CFNS_,  CFNS_,  WHITE,  L____,
+                                        CQWER,  L____,  L____,      L____,  L____,  L____
     },
 
     [_NAVIGATION] = {
-        L____,  L____,  L____,  L____,  L____,  L____,                      L____,  L____,  L____,  L____,  L____,  SAGE_,
-        L____,  L____,  L____,  WHITE,  WHITE,  L____,                      L____,  L____,  L____,  L____,  L____,  L____,
-        L____,  WHITE,  WHITE,  WHITE,  WHITE,  WHITE,                      SAGE_,  SAGE_,  SAGE_,  SAGE_,  SAGE_,  L____,
-        L____,  L____,  L____,  L____,  WHITE,  L____,  L____,      L____,  L____,  L____,  L____,  L____,  L____,  L____,
-                                        L____,  L____,  L____,      L____,  SAGE_,  L____
+        L____,  L____,  L____,  L____,  L____,  L____,                      L____,  L____,  L____,  L____,  L____,  CQWER,
+        L____,  L____,  L____,  CNAV1,  CNAV2,  L____,                      L____,  L____,  L____,  L____,  L____,  L____,
+        L____,  CNAV2,  CNAV1,  CNAV1,  CNAV1,  CNAV2,                      CQWER,  CQWER,  CQWER,  CQWER,  CQWER,  L____,
+        L____,  L____,  L____,  L____,  CNAV2,  L____,  L____,      L____,  L____,  L____,  L____,  L____,  L____,  L____,
+                                        L____,  L____,  L____,      L____,  CQWER,  L____
     },
 
     [_GAMING_NUMS] = {
@@ -198,14 +199,14 @@ const uint8_t PROGMEM ledmap[][DRIVER_LED_TOTAL][3] = {
         L____,  WHITE,  WHITE,  WHITE,  WHITE,  L____,                      L____,  L____,  L____,  L____,  L____,  L____,
         L____,  WHITE,  WHITE,  WHITE,  WHITE,  L____,                      L____,  L____,  L____,  L____,  L____,  L____,
         L____,  WHITE,  WHITE,  WHITE,  WHITE,  L____,  L____,      L____,  L____,  L____,  L____,  L____,  L____,  L____,
-                                        L____,  L____,  SAGE_,      L____,  L____,  L____
+                                        L____,  L____,  CQWER,      L____,  L____,  L____
     },
 
     [_GAMING_FNS] = {
         L____,  L____,  L____,  L____,  L____,  L____,                      L____,  L____,  L____,  L____,  L____,  L____,
         L____,  WHITE,  WHITE,  WHITE,  WHITE,  L____,                      L____,  L____,  L____,  L____,  L____,  L____,
         L____,  WHITE,  WHITE,  WHITE,  WHITE,  L____,                      L____,  L____,  L____,  L____,  L____,  L____,
-        L____,  WHITE,  WHITE,  WHITE,  WHITE,  L____,  SAGE_,      L____,  L____,  L____,  L____,  L____,  L____,  L____,
+        L____,  WHITE,  WHITE,  WHITE,  WHITE,  L____,  CQWER,      L____,  L____,  L____,  L____,  L____,  L____,  L____,
                                         L____,  L____,  L____,      L____,  L____,  L____
     }
 
