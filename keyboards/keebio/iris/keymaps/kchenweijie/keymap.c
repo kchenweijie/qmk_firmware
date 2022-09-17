@@ -1,5 +1,6 @@
 #include QMK_KEYBOARD_H
 
+///// KEYCODE SHORTHANDS    ////////////////////////////////////////////////////
 #define LSFT_A LSFT_T(KC_A)
 #define LCTL_S LCTL_T(KC_S)
 #define LGUI_D LGUI_T(KC_D)
@@ -23,6 +24,7 @@
 
 #define _____ KC_NO
 
+///// LAYERS    ////////////////////////////////////////////////////////////////
 enum layers {
     _QWERTY,
     _GAMING,
@@ -34,6 +36,7 @@ enum layers {
     _GAMING_FNS,
 };
 
+///// KEYMAPS   ////////////////////////////////////////////////////////////////
 // clang-format off
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_QWERTY] = LAYOUT(
@@ -101,6 +104,24 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     )
 };
 // clang-format on
+
+///// COLORS    ////////////////////////////////////////////////////////////////
+        // Name     // HSV      // RGB
+#define BLACK       {0, 0, 0}   // 0, 0, 0
+
+///// LAYER COLORS  ////////////////////////////////////////////////////////////
+// clang-format off
+const uint8_t PROGMEM ledmap[][DRIVER_LED_TOTAL][3] = {
+
+};
+// clang-format on
+
+///// PROCESS FUNCTIONS ////////////////////////////////////////////////////////
+extern rgb_config_t rgb_matrix_config;
+
+void keyboard_post_init_user(void) {
+    rgb_matrix_enable();
+}
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     return true;
