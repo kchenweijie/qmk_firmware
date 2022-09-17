@@ -31,7 +31,7 @@ const rgblight_segment_t PROGMEM QWERTY_LIGHT_LAYER[] = RGBLIGHT_LAYER_SEGMENTS(
     {40, 5, 0, 0, 255},
     {47, 4, 60, 41, 164},
     {51, 6, 0, 0, 255},
-    {58, 3, 60, 41, 164},
+    {58, 3, 60, 41, 164}
 );
 
 const rgblight_segment_t PROGMEM GAMING_LIGHT_LAYER[] = RGBLIGHT_LAYER_SEGMENTS(
@@ -47,7 +47,7 @@ const rgblight_segment_t PROGMEM GAMING_LIGHT_LAYER[] = RGBLIGHT_LAYER_SEGMENTS(
     // Right side
     {40, 5, 0, 0, 255},
     {47, 10, 0, 0, 255},
-    {59, 1, 60, 41, 164},
+    {59, 1, 60, 41, 164}
 );
 
 const rgblight_segment_t PROGMEM NUMBERS_LIGHT_LAYER[] = RGBLIGHT_LAYER_SEGMENTS(
@@ -58,7 +58,7 @@ const rgblight_segment_t PROGMEM NUMBERS_LIGHT_LAYER[] = RGBLIGHT_LAYER_SEGMENTS
     // Right side
     {40, 5, 0, 0, 255},
     {47, 10, 0, 0, 255},
-    {58, 3, 0, 0, 255},
+    {58, 3, 0, 0, 255}
 );
 
 
@@ -70,7 +70,7 @@ const rgblight_segment_t PROGMEM SYMBOLS_LIGHT_LAYER[] = RGBLIGHT_LAYER_SEGMENTS
     // Right side
     {40, 5, 0, 0, 255},
     {47, 10, 0, 0, 255},
-    {58, 3, 0, 0, 255},
+    {58, 3, 0, 0, 255}
 );
 
 const rgblight_segment_t PROGMEM FUNCTIONS_LIGHT_LAYER[] = RGBLIGHT_LAYER_SEGMENTS(
@@ -81,7 +81,7 @@ const rgblight_segment_t PROGMEM FUNCTIONS_LIGHT_LAYER[] = RGBLIGHT_LAYER_SEGMEN
     // Right side
     {41, 4, 0, 0, 255},
     {47, 4, 0, 0, 255},
-    {53, 4, 0, 0, 255},
+    {53, 4, 0, 0, 255}
 );
 
 const rgblight_segment_t PROGMEM NAVIGATION_LIGHT_LAYER[] = RGBLIGHT_LAYER_SEGMENTS(
@@ -92,7 +92,7 @@ const rgblight_segment_t PROGMEM NAVIGATION_LIGHT_LAYER[] = RGBLIGHT_LAYER_SEGME
 
     // Right side
     {47, 4, 60, 41, 164},
-    {59, 1, 60, 41, 164},
+    {59, 1, 60, 41, 164}
 );
 
 const rgblight_segment_t PROGMEM GAMING_NUMS_LIGHT_LAYER[] = RGBLIGHT_LAYER_SEGMENTS(
@@ -100,7 +100,7 @@ const rgblight_segment_t PROGMEM GAMING_NUMS_LIGHT_LAYER[] = RGBLIGHT_LAYER_SEGM
     {7, 4, 0, 0, 255},
     {13, 4, 0, 0, 255},
     {19, 4, 0, 0, 255},
-    {26, 1, 60, 41, 164},
+    {26, 1, 60, 41, 164}
 
     // Right side
 );
@@ -110,7 +110,7 @@ const rgblight_segment_t PROGMEM GAMING_FNS_LIGHT_LAYER[] = RGBLIGHT_LAYER_SEGME
     {7, 4, 0, 0, 255},
     {13, 4, 0, 0, 255},
     {19, 4, 0, 0, 255},
-    {27, 1, 60, 41, 164},
+    {27, 1, 60, 41, 164}
 
     // Right side
 );
@@ -123,5 +123,5 @@ const rgblight_segment_t* const PROGMEM LIGHT_LAYERS[] = RGBLIGHT_LAYERS_LIST(
     FUNCTIONS_LIGHT_LAYER,
     NAVIGATION_LIGHT_LAYER,
     GAMING_NUMS_LIGHT_LAYER,
-    GAMING_FNS_LIGHT_LAYER,
+    GAMING_FNS_LIGHT_LAYER
 );
