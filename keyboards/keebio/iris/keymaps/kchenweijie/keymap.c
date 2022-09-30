@@ -21,6 +21,10 @@
 #define LGNV MO(_NAVIGATION)
 
 #define TGAM TG(_GAMING)
+#define TFUN TG(_FUNCTIONS)
+#define TNUM TG(_NUMBERS)
+#define TSYM TG(_SYMBOLS)
+#define TNAV TG(_NAVIGATION)
 
 #define _____ KC_NO
 
@@ -59,7 +63,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         _____,  _____,  _____,  _____,  _____,  _____,                      _____,  _____,  _____,  _____,  _____,  _____,
         _____,  _____,  _____,  _____,  _____,  _____,                      KC_GRV, KC_7,   KC_8,   KC_9,   KC_BSLS,_____,
         _____,  KC_LSFT,KC_LCTL,KC_LGUI,KC_LALT,_____,                      KC_LBRC,KC_4,   KC_5,   KC_6,   KC_RBRC,_____,
-        _____,  _____,  _____,  _____,  _____,  _____,  _____,      _____,  KC_EQL, KC_1,   KC_2,   KC_3,   KC_SCLN,_____,
+        _____,   _____,  _____,  _____,  _____, _____,  _____,      _____,  KC_EQL, KC_1,   KC_2,   KC_3,   KC_SCLN,_____,
                                         _____,  KC_TRNS,_____,      KC_MINS,KC_0,   KC_DOT
     ),
 
@@ -67,7 +71,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         _____,  _____,  _____,  _____,  _____,  _____,                      _____,  _____,  _____,  _____,  _____,  _____,
         _____,  _____,  _____,  _____,  _____,  _____,                      KC_TILD,KC_AMPR,KC_ASTR,KC_LPRN,KC_PIPE,_____,
         _____,  KC_LSFT,KC_LCTL,KC_LGUI,KC_LALT,_____,                      KC_LCBR,KC_DLR, KC_PERC,KC_CIRC,KC_RCBR,_____,
-        _____,  _____,  _____,  _____,  _____,  _____,  _____,      _____,  KC_PLUS,KC_EXLM,KC_AT,  KC_HASH,KC_COLN,_____,
+        _____,   _____,  _____,  _____,  _____, _____,  _____,      _____,  KC_PLUS,KC_EXLM,KC_AT,  KC_HASH,KC_COLN,_____,
                                         _____,  _____,  KC_TRNS,    KC_UNDS,KC_LPRN,KC_RPRN
     ),
 
@@ -75,8 +79,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         _____,  _____,  _____,  _____,  _____,  _____,                      _____,  _____,  _____,  _____,  _____,  _____,
         _____,  _____,  _____,  _____,  _____,  _____,                      _____,  KC_F7,  KC_F8,  KC_F9,  KC_F12, _____,
         _____,  KC_LSFT,KC_LCTL,KC_LGUI,KC_LALT,_____,                      _____,  KC_F4,  KC_F5,  KC_F6,  KC_F11, _____,
-        _____,  _____,  _____,  _____,  _____,  _____,  _____,      _____,  _____,  KC_F1,  KC_F2,  KC_F3,  KC_F10, _____,
-                                        KC_TRNS,_____,  _____,      _____,  _____,  _____
+        _____,   _____,  _____,  _____,  _____, _____,  _____,      _____,  _____,  KC_F1,  KC_F2,  KC_F3,  KC_F10, _____,
+                                        KC_TRNS,_____,  _____,      _____,  TNAV,  _____
     ),
 
     [_NAVIGATION] = LAYOUT(
@@ -84,7 +88,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         _____,  _____,  _____,  KC_UP,  KC_PGUP,_____,                      _____,  _____,  _____,  _____,  _____,  _____,
         _____,  KC_HOME,KC_LEFT,KC_DOWN,KC_RGHT,KC_END,                     KC_CAPS,KC_LALT,KC_RGUI,KC_RCTL,KC_RSFT,_____,
         _____,  _____,  _____,  _____,  KC_PGDN,_____,  _____,      _____,  _____,  _____,  _____,  _____,  _____,  _____,
-                                        _____,  _____,  _____,      _____,  KC_TRNS,_____
+                                        TFUN,   TNUM,   TSYM,       _____,  KC_TRNS,_____
     ),
 
     [_GAMING_NUMS] = LAYOUT(
@@ -230,7 +234,7 @@ void set_layer_color(int layer) {
         };
 
         uint8_t addr = pgm_read_byte(&addrmap[i]);
-        float f   = (float)rgb_matrix_config.hsv.v / UINT8_MAX;
+        float   f    = (float)rgb_matrix_config.hsv.v / UINT8_MAX;
         rgb_matrix_set_color(addr, f * rgb.r, f * rgb.g, f * rgb.b);
     }
 }
